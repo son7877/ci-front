@@ -49,9 +49,9 @@ jobs:
         host: ${{ secrets.SSH_HOST }}
         username: ${{ secrets.SSH_USERNAME }}
         key: ${{ secrets.SSH_PASSWORD }}
-        script: |
+        script: 
           docker pull ${{secrets.DOCKER_USERNAME}}/${{secrets.DOCKER_REPO}}
-          docker rm -f ${{secrets.DOCKER_USERNAME}}/${{secrets.DOCKER_REPO}}
+          docker rm -f myfront
           docker run --name myfront -p 80:80 -d ${{secrets.DOCKER_USERNAME}}/${{secrets.DOCKER_REPO}}
       
           
